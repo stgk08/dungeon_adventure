@@ -3,11 +3,11 @@ from character import Character
 class Enemy(Character):
     def __init__(self, name: str, health: int, damage: int):
         super().__init__(name, health)
-        self.damage = damage
+        self._damage = damage
 
     def attack(self, player):
-        player.take_damage(self.damage)
-        print(f"{self.get_name()} attacked you and dealt {self.damage} damage!")
+        player.take_damage(self._damage)
+        print(f"{self.get_name()} attacked you and dealt {self._damage} damage!")
 
 class Goblin(Enemy):
     def __init__(self):
