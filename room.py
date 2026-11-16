@@ -1,25 +1,25 @@
 class Room:
     def __init__(self, name: str, description: str, enemy, reward=None):
-        self.__name = name
-        self.__description = description
-        self.__enemy = enemy
-        self.__reward = reward
+        self._name = name
+        self._description = description
+        self._enemy = enemy
+        self._reward = reward
 
     def enter(self):
         print("\n" + "=" * 40)
-        print(self.__name)
-        print(self.__description)
+        print(self._name)
+        print(self._description)
         print("=" * 40)
 
         print(
-            f"A {self.__enemy.get_name()} appears!"
+            f"A {self._enemy.get_name()} appears!"
         )
 
     def get_enemy(self):
-        return self.__enemy
+        return self._enemy
 
     def get_reward(self):
-        return self.__reward
+        return self._reward
 
     def is_cleared(self):
-        return not self.__enemy.is_alive()
+        return not self._enemy.is_alive()
