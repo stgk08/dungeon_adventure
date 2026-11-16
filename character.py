@@ -16,5 +16,8 @@ class character:
     def take_damage(self, amount):
         self.__health = max(0, self.__health - amount)
 
+    def heal(self, amount):
+        self.__health = min(self.__max_health, self.__health + amount)
 
-    
+    def is_alive(self):
+        return self.__health > 0
