@@ -1,6 +1,5 @@
-
 class Room:
-    def __init__(self, name, description, enemy, reward=None):
+    def __init__(self, name: str, description: str, enemy, reward=None):
         self.__name = name
         self.__description = description
         self.__enemy = enemy
