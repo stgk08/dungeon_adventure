@@ -1,6 +1,6 @@
 class character:
     def __init__(self, name:str, health):
-        self.__name = navn
+        self.__name = name
         self.__health = health
         self.__max_health = health
 
