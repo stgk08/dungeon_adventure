@@ -146,6 +146,24 @@ class Room:
     def get_enemy(self):
         return self._enemy
 
+from game import Game
+
+
+def main():
+    print("==============================")
+    print("      DUNGEON ADVENTURE")
+    print("==============================")
+
+    name = input("Enter your character's name: ")
+
+    game = Game(name)
+    game.start()
+
+
+if __name__ == "__main__":
+    main()
+
+
     def get_reward(self):
         return self._reward
 
