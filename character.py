@@ -1,5 +1,5 @@
-class character:
-    def __init__(self, name:str, health):
+class Character:
+    def __init__(self, name, health):
         self.__name = name
         self.__health = health
         self.__max_health = health
@@ -17,7 +17,10 @@ class character:
         self.__health = max(0, self.__health - amount)
 
     def heal(self, amount):
-        self.__health = min(self.__max_health, self.__health + amount)
+        self.__health = min(
+            self.__max_health,
+            self.__health + amount
+        )
 
     def is_alive(self):
         return self.__health > 0
