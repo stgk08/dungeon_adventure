@@ -1,22 +1,36 @@
+import random
 from character import Character
 
+
 class Enemy(Character):
-    def __init__(self, name: str, health: int, damage: int):
+    def __init__(self, name, health, damage):
         super().__init__(name, health)
-        self._damage = damage
+        self.__damage = damage
 
-    def attack(self, player):
-        player.take_damage(self._damage)
-        print(f"{self.get_name()} attacked you and dealt {self._damage} damage!")
+    def attack_player(self, player):
+        player.take_damage(self.__damage)
 
-class Goblin(Enemy):
-    def __init__(self):
-        super().__init__("Goblin", 20, 5)
+        print(
+            f"{self.get_name()} attacks you "
+            f"for {self.__damage} damage!"
+        )
 
-class Skeleton(Enemy):
-    def __init__(self):
-        super().__init__("Skeleton", 30, 8)
 
 class Boss(Enemy):
-    def __init__(self):
-        super().__init__("Dragon", 60, 12)
+    def __init__(self, name, health, damage, special_attack):
+        super().__init__(name, health, damage)
+        self.__special_attack = special_attack
+
+    def special_move(self, player):
+        player.take_damage(self.__special_attack)
+
+        print(
+            f"{self.get_name()} uses a SPECIAL ATTACK "
+            f"for {self.__special_attack} damage!"
+        )
+
+    def attack_player(self, player):
+        if random.randint(1, 3) == 1:
+            self.special_move(player)
+        else:
+            super().attack_player(player)
